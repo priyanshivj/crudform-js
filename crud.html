@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRUD application</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+  <style>
+    body {
+      /* background-color:#6239e352; */
+      /* background: rgb(138, 31, 187);
+        background: radial-gradient(
+          circle,
+          rgba(138, 31, 187, 1) 0%,
+          rgba(146, 103, 154, 1) 0%,
+          rgba(0, 228, 255, 1) 100%
+        ); */
+      background-color: #90a955;
+    }
+
+    .table-bg {
+      /* background: rgb(138, 31, 187);
+        background: radial-gradient(
+          circle,
+          rgba(138, 31, 187, 1) 0%,
+          rgba(146, 103, 154, 1) 0%,
+          rgba(0, 228, 255, 1) 100%
+        ); */
+      /* background-color: #ecf39e;
+        background-color: #90a955; */
+      /* background-color: antiquewhite; */
+      border-color: #cbcbcb;
+      background-color: #fff;
+    }
+
+   
+
+   
+    .btn-space{
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row mb-5">
+      <h1>CRUD Application</h1>
+    </div>
+    <div class="row">
+      <div class="col-8">
+        <div>
+          <!-- <h2>Students Details</h2> -->
+          <button class="btn btn-success" id="btnPrint">Fetch Data</button> |
+          <button class="btn btn-dark" id="btnClean">Reset</button>
+          <table class="table table-striped table-bg table-hover table-bordered mt-2">
+            <thead>
+              <tr>
+                <th scope="col">No.</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Genre</th>
+                <th scope="col">Price</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody id="BooksData"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-4">
+        <button class="btn btn-success" id="addForm">Add</button> |
+        <button class="btn btn-dark" id="updateForm">Update Book</button>
+        <div id="addbooksForm" style="display: block">
+          <h2>Add Books</h2>
+          <form action="javascript:alert('form is submitted.')" method="post" onsubmit="return addBooks(this)" style="
+                /* background-color: rgb(60, 59, 59); */
+                background-color: #4f772d;
+                color: #fff;
+                padding: 20px;
+              ">
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Book Title
+              </label>
+              <input type="text" class="form-control" required name="Title" placeholder="Enter the Book Name" />
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">
+                Author
+              </label>
+              <input type="text" class="form-control" required name="Author" placeholder="Enter the Author" />
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">
+                Genre</label>
+              <input type="text" class="form-control" required name="Genre" placeholder="Enter the Genre" />
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Price</label>
+              <input type="text" class="form-control" required name="Price" placeholder="Enter the Price" />
+            </div>
+
+            <button class="btn btn-success" type="submit">Add Book</button>
+            <button class="btn btn-dark" type="reset">Reset</button>
+          </form>
+        </div>
+        <div id="updatebooksForm" style="display: none">
+          <h2>Update Books</h2>
+          <form action="javascript:alert('form is submitted.')" method="post" id="updateFormBooks" class="test"
+            onsubmit="return ProcessBooks(this, this.className)" style="
+                /* background-color: rgb(121, 78, 98); */
+                background-color: rgb(85, 82, 82);
+                color: #fff;
+                padding: 20px;
+              ">
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Book Title
+              </label>
+              <input type="text" class="form-control" required name="Title" placeholder="Enter the Book Name" />
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">
+                Author
+              </label>
+              <input type="text" class="form-control" required name="Author" placeholder="Enter the Author" />
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">
+                Genre</label>
+              <input type="text" class="form-control" required name="Genre" placeholder="Enter the Genre" />
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Price</label>
+              <input type="text" class="form-control" required name="Price" placeholder="Enter the Price" />
+            </div>
+            <button class="btn btn-success type="submit">
+              Update Books
+            </button>
+            <button class="btn btn-dark" type="reset">Reset</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./script.js"></script>
+</body>
+
+</html>
